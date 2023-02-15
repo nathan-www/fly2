@@ -1,0 +1,19 @@
+.navbar{
+
+    display: flex;
+    padding: 15px 80px;
+    border-bottom: 1px solid #EDEDED;
+
+    .nav-left, .nav-center, .nav-right{
+        width: 33.3%;
+        display: flex;
+    }
+    .nav-center{
+        margin: 0px auto;
+        justify-content: center;
+    }
+
+    .nav-right{
+        justify-content: right;
+    }
+}
