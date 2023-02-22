@@ -1,22 +1,32 @@
 import Navbar from "../../components/Navbar";
 import Carousel from "../../components/Carousel";
+import CarouselProgress from "../../components/CarouselProgress";
 import SearchBar from "../../components/SearchBar";
 import Icon from "../../components/Icon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.scss";
+
+import ImageTokyo from "../../assets/img/tokyo.jpg";
+import ImageTahiti from "../../assets/img/tahiti.jpg";
+import ImageParis from "../../assets/img/paris.jpg";
+import ImageCappadocia from "../../assets/img/cappadocia.jpg";
 
 function LandingPage() {
   const recommendedLocations = [
-    { src: "/img/tokyo.jpg", name: "Tokyo, Japan" },
-    { src: "/img/tahiti.jpg", name: "Tahiti, French Polynesia" },
-    { src: "/img/paris.jpg", name: "Paris, France" },
-    { src: "/img/cappadocia.jpg", name: "Cappadocia, Turkey" },
-    { src: "/img/geneva.jpg", name: "Geneva, Switzerland" },
-    { src: "/img/san-francisco.jpg", name: "San Francisco, USA" },
-    { src: "/img/seychelles.jpg", name: "Praslin Island, Seychelles" },
+    { src: ImageTokyo, name: "Tokyo, Japan" },
+    { src: ImageTahiti, name: "Tahiti, French Polynesia" },
+    { src: ImageParis, name: "Paris, France" },
+    { src: ImageCappadocia, name: "Cappadocia, Turkey" },
   ];
 
   const [carouselActiveIndex, setCarouselActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      carouselNext();
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [carouselActiveIndex]);
 
   function carouselNext() {
     if (carouselActiveIndex === recommendedLocations.length - 1) {
@@ -37,6 +47,7 @@ function LandingPage() {
   return (
     <div className="landing-page">
       <Navbar />
+
       <div className="container">
         <div className="carousel-container">
           <Carousel images={recommendedLocations} active={carouselActiveIndex}>
@@ -52,16 +63,25 @@ function LandingPage() {
         </div>
 
         <div className="flex carousel-suggestion">
-            <div className="v-center">
-                <h3>Flights to <span className="carousel-suggestion-link">{recommendedLocations[carouselActiveIndex].name}</span></h3>
-            </div>
-            <div className="v-center right-arrow">
-                <Icon name="ArrowRight" size={18} color="#666666"></Icon>
-            </div>
-        </div>
+          <div className="v-center">
+            <h3>
+              Flights to{" "}
+              <span className="carousel-suggestion-link">
+                {recommendedLocations[carouselActiveIndex].name}
+              </span>
+            </h3>
+          </div>
+          <div className="v-center right-arrow">
+            <Icon name="ArrowRight" size={18} color="#666666"></Icon>
+          </div>
 
-        <button onClick={carouselPrev}>Prev</button>
-        <button onClick={carouselNext}>Next</button>
+          <div className="v-center push-right">
+            <CarouselProgress
+              currentIndex={carouselActiveIndex}
+              totalItems={recommendedLocations.length}
+            ></CarouselProgress>
+          </div>
+        </div>
       </div>
     </div>
   );

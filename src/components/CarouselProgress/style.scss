@@ -1,0 +1,18 @@
+.carousel-progress{
+
+    .progress-dot{
+        height: 9px;
+        width: 9px;
+        border-radius: 50%;
+        background-color: #DEDEDE;
+
+        &:not(:last-child){
+            margin-right: 4px;
+        }
+
+        &.active{
+            background-color: #808080;
+        }
+    }
+
+}

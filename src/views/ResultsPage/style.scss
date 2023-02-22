@@ -1,0 +1,16 @@
+.results-page {
+  .container {
+    padding: 60px;
+  }
+
+  .form-section {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .results-container{
+    width: 100%;
+  }
+
+}

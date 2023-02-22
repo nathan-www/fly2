@@ -1,0 +1,19 @@
+.suggestions-list{
+    color: #4D4D4D;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    padding: 6px 7px;
+    background-color: #fff;
+    width: 100%;
+
+    .suggestion-item{
+        padding: 6px 7px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #EDEDED;
+        }
+    }
+}

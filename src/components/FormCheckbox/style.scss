@@ -1,0 +1,32 @@
+.form-checkbox {
+  .checkbox {
+    height: 17px;
+    width: 17px;
+    align-items: center;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: background-color 0.2s;
+
+    .check-icon{
+      transition: opacity 0.2s;
+    }
+
+    &.checked{
+        background-color: #3069FE;
+    }
+
+    &:not(.checked){
+        border: 1px solid #DEDEDE;
+        .check-icon{
+          opacity: 0;
+        }
+    }
+
+  }
+
+  h3{
+    color: #333;
+    font-weight: 500;
+  }
+}
