@@ -1,19 +1,31 @@
-.navbar{
+.navbar {
+  display: flex;
+  padding: 15px 80px;
+  border-bottom: 1px solid #ededed;
+  position: relative;
 
+  .nav-left,
+  .nav-center,
+  .nav-right {
+    width: 33.3%;
     display: flex;
-    padding: 15px 80px;
-    border-bottom: 1px solid #EDEDED;
+  }
+  .nav-center {
+    margin: 0px auto;
+    justify-content: center;
+  }
 
-    .nav-left, .nav-center, .nav-right{
-        width: 33.3%;
-        display: flex;
-    }
-    .nav-center{
-        margin: 0px auto;
-        justify-content: center;
-    }
+  .nav-right {
+    justify-content: right;
+  }
 
-    .nav-right{
-        justify-content: right;
+  .departing-from {
+    h3 {
+      white-space: nowrap;
+      margin-right: 10px;
+      color: #333333;
+      font-size: 500;
+      font-size: 14px;
     }
+  }
 }

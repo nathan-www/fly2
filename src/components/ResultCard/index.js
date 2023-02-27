@@ -14,12 +14,12 @@ function ResultCard(props) {
           <div>
             <h1>£{props.price}</h1>
             <div className="btn cta flex">
-                <div className="v-center">
-                    <p>Select</p>
-                </div>
-                <div className="v-center">
-                    <Icon size={17} name="ArrowRight"></Icon>
-                </div>
+              <div className="v-center">
+                <p>Select</p>
+              </div>
+              <div className="v-center">
+                <Icon size={17} name="ArrowRight"></Icon>
+              </div>
             </div>
           </div>
         </div>

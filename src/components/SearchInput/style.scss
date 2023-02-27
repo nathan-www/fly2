@@ -1,0 +1,27 @@
+.search-input {
+
+  p.chosen-text {
+    font-size: 15px;
+    color: #252525;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  input {
+    font-size: 15px;
+    border: 0px;
+    outline: none;
+    color: #4d4d4d;
+    width: 160px;
+    background-color: transparent;
+
+    &::placeholder {
+      color: #808080;
+    }
+
+    &:active {
+      border: 0px;
+      outline: none;
+    }
+  }
+}

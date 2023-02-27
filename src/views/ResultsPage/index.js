@@ -7,6 +7,7 @@ import { useState } from "react";
 import FormCheckbox from "../../components/FormCheckbox";
 import JourneySummary from "../../components/JourneySummary";
 import ResultCard from "../../components/ResultCard";
+import SearchBarMini from "../../components/SearchBarMini";
 
 function ResultsPage() {
   const [cabinClass, setCabinClass] = useState("Economy");
@@ -16,7 +17,7 @@ function ResultsPage() {
 
   return (
     <div className="results-page">
-      <Navbar></Navbar>
+      <Navbar childrenCenter={<SearchBarMini />}></Navbar>
 
       <div className="container">
         <div className="flex">
