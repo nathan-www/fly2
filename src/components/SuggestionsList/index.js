@@ -15,7 +15,7 @@ function SuggestionsList(props) {
           style={props.itemStyle}
           onClick={(e) => { e.stopPropagation(); props.onSelect(item)}}
         >
-          {item.text}
+          {item.el ?? item.text}
         </div>
       ))}
     </div>

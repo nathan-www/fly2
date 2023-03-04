@@ -26,3 +26,22 @@
 .push-right{
     margin-left: auto;
 }
+
+.btn{
+
+    width: fit-content;
+    padding: 7px 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    user-select: none;
+
+    &.btn-primary{
+        background-color: #3069fe;
+        &:hover{
+            background-color: #1252F7;
+        }
+    }
+}

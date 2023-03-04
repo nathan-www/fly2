@@ -10,15 +10,17 @@ function Tooltip(props) {
     const el = props.attachTo;
 
     if (el != null) {
-      const elBounds = el.getBoundingClientRect();
-
-      el.addEventListener("mouseover", () => setVisible(true));
+      el.addEventListener("mouseover", () => {
+        setVisible(true);
+        const elBounds = el.getBoundingClientRect();
+        setPos({
+          x: elBounds.x + elBounds.width / 2,
+          y:
+            props.position == "top" ? elBounds.y : elBounds.y + elBounds.height,
+        });
+      });
       el.addEventListener("mouseout", () => setVisible(false));
 
-      setPos({
-        x: elBounds.x + elBounds.width / 2,
-        y: props.position == "top" ? elBounds.y : elBounds.y + elBounds.height,
-      });
     }
   }, [props.attachTo]);
 
@@ -34,7 +36,7 @@ function Tooltip(props) {
           left: pos.x,
         }}
       >
-        { props.text }
+        {props.text}
         <div className="arrow"></div>
       </div>
     )

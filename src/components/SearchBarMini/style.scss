@@ -33,7 +33,7 @@
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     border-radius: 1000px;
-    padding: 10px;
+    padding: 7px;
     transition: transform 0.2s;
 
     .seperator {
@@ -44,7 +44,7 @@
     }
 
     .pill {
-      padding: 10px 25px;
+      padding: 8px 22px;
       border-radius: 100px;
       transition: background-color 0.2s;
       cursor: pointer;
@@ -60,7 +60,7 @@
       h3 {
         color: #252525;
         font-weight: 500;
-        font-size: 15px;
+        font-size: 13px;
       }
     }
   }

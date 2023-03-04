@@ -13,4 +13,31 @@
     width: 100%;
   }
 
+  .results-placeholder{
+    text-align: center;
+    padding: 150px 0px;
+    .loader{
+      width: 30px;
+      animation: spin 0.8s linear infinite;
+    }
+    .icon{
+      margin-bottom: 20px;
+    }
+    h3{
+      color: #4d4d4d;
+      font-size: 18px;
+      font-weight: 500;
+      user-select: none;
+    }
+  }
+
+}
+
+@keyframes spin{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
 }

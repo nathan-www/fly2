@@ -8,7 +8,7 @@ function FormDropdownInput(props) {
 
   return (
     <div
-      className="form-text-input"
+      className="form-dropdown-input"
       style={{ width: props.width, position: "relative", ...props.styles }}
     >
       <h3>{props.label}</h3>
@@ -29,7 +29,7 @@ function FormDropdownInput(props) {
         <SuggestionsList
           items={props.options}
           onSelect={(val) => {
-            props.onSelect(val);
+            props.onSelect(val.text);
             setDropdownOpen(false);
           }}
           onClickOutside={() => {

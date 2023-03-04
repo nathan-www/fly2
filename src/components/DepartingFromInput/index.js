@@ -1,30 +1,37 @@
 import "./style.scss";
 import Icon from "../Icon";
 import SearchInput from "../SearchInput";
-import { useCallback, useState } from "react";
+import AutosuggestItem from "../AutosuggestItem";
+import { useCallback, useContext, useState } from "react";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import { debounceWithQueue } from "../../utils/debounce";
+import { autosuggest } from "../../utils/autosuggest";
+import DepartureLocationContext from "../../utils/DepartureLocationContext";
 
 function DepartingFromInput() {
   const [isTyping, setIsTyping] = useState(false);
-  const [departingValue, setDepartingValue] = useState({});
   const [autofillOptions, setAutofillOptions] = useState([]);
 
-
+  const { departureLocation, setDepartureLocation } = useContext(DepartureLocationContext);
 
   const departingInputRef = useDetectClickOutside({
     onTriggered: () => setIsTyping(false),
   });
 
-  const searchDepartureLocations = useCallback(debounceWithQueue((text) => {
-    setAutofillOptions([
-      {
-        id: 1,
-        text: text,
-      },
-    ]);
-    console.log('called ' + text);
-  }, 800), []);
+  const searchDepartureLocations = useCallback(
+    debounceWithQueue((text) => {
+      autosuggest(text).then((places) => {
+          setAutofillOptions(
+            places.map((place) => ({
+              id: place.iataCode,
+              text: place.name,
+              el: <AutosuggestItem name={place.name} country={place.countryName} type={place.type} />
+            }))
+          );
+        });
+    }, 800),
+    []
+  );
 
   return (
     <div
@@ -41,10 +48,13 @@ function DepartingFromInput() {
       <div className="v-center">
         <SearchInput
           placeholder="Search"
-          value={departingValue.text}
+          value={departureLocation.text}
           isTyping={isTyping}
           onSelect={(val) => {
-            setDepartingValue(val);
+            setDepartureLocation({
+              code: val.id,
+              text: val.text
+            });
             setIsTyping(false);
           }}
           onType={searchDepartureLocations}

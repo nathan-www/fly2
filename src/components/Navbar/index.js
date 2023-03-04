@@ -1,8 +1,10 @@
 import './style.scss'
 import Logo from '../Logo';
 import DepartingFromInput from '../DepartingFromInput';
+import { useContext } from 'react';
 
 function Navbar(props) {
+
     return (
         <div className="navbar">
             <div className="nav-left">

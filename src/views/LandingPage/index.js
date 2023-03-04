@@ -11,15 +11,17 @@ import ImageTahiti from "../../assets/img/tahiti.jpg";
 import ImageParis from "../../assets/img/paris.jpg";
 import ImageCappadocia from "../../assets/img/cappadocia.jpg";
 
+
 function LandingPage() {
   const recommendedLocations = [
-    { src: ImageTokyo, name: "Tokyo, Japan" },
-    { src: ImageTahiti, name: "Tahiti, French Polynesia" },
-    { src: ImageParis, name: "Paris, France" },
-    { src: ImageCappadocia, name: "Cappadocia, Turkey" },
+    { src: ImageTokyo, name: "Tokyo, Japan", code: "TYO" },
+    { src: ImageTahiti, name: "Tahiti, French Polynesia", code: "PPT" },
+    { src: ImageParis, name: "Paris, France", code: "PAR" },
+    { src: ImageCappadocia, name: "Cappadocia, Turkey", code: "NAV" },
   ];
 
   const [carouselActiveIndex, setCarouselActiveIndex] = useState(0);
+  const [destinationValue, setDestinationValue] = useState({});
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,6 +48,8 @@ function LandingPage() {
 
   return (
     <div className="landing-page">
+
+
       <Navbar />
 
       <div className="container">
@@ -56,23 +60,25 @@ function LandingPage() {
                 <h1>
                   Dream it. <br></br> Visit it.
                 </h1>
-                <SearchBar></SearchBar>
+                <SearchBar destinationValue={destinationValue}></SearchBar>
               </div>
             </div>
           </Carousel>
         </div>
 
         <div className="flex carousel-suggestion">
-          <div className="v-center">
-            <h3>
-              Flights to{" "}
-              <span className="carousel-suggestion-link">
-                {recommendedLocations[carouselActiveIndex].name}
-              </span>
-            </h3>
-          </div>
-          <div className="v-center right-arrow">
-            <Icon name="ArrowRight" size={18} color="#666666"></Icon>
+          <div className="flex" onClick={() => setDestinationValue({id: recommendedLocations[carouselActiveIndex].code, text: recommendedLocations[carouselActiveIndex].name})}>
+            <div className="v-center">
+              <h3>
+                Flights to{" "}
+                <span className="carousel-suggestion-link">
+                  {recommendedLocations[carouselActiveIndex].name}
+                </span>
+              </h3>
+            </div>
+            <div className="v-center right-arrow">
+              <Icon name="ArrowRight" size={18} color="#666666"></Icon>
+            </div>
           </div>
 
           <div className="v-center push-right">

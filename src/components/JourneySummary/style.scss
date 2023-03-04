@@ -2,46 +2,63 @@
   h3 {
     color: #333333;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 5px;
   }
 
-  .airline-logo-container{
-    img{
+  .airline-logo-container {
+    img {
       height: 45px;
       border-radius: 5px;
     }
     margin-right: 20px;
+    width: 90px;
   }
 
   .airport-code {
-    font-size: 16px;
+    font-size: 14px;
     color: #808080;
   }
 
   .time {
     color: #333333;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
 
-    &.float-right{
-        margin-left: auto;
-        width: fit-content;
+    &.float-right {
+      margin-left: auto;
+      width: fit-content;
     }
   }
 
-  .jouney-time, .jouney-stops-count{
+  .airport {
+    width: 210px;
+
+    h3 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &.float-right{
+        text-align: right;
+      }
+    }
+  }
+
+  .jouney-time,
+  .jouney-stops-count {
     text-align: center;
     margin: 10px 0px;
     color: #808080;
     font-weight: 500;
+    font-size: 12px;
 
-    &.red{
-      color: #D45058;
+    &.red {
+      color: #d45058;
     }
   }
 
-  .journey-line{
+  .journey-line {
     height: 3px;
     width: 200px;
     background-color: #808080;
@@ -49,7 +66,7 @@
     border-radius: 100px;
     position: relative;
 
-    .stop-dot{
+    .stop-dot {
       position: absolute;
       left: 50%;
       top: 0px;
@@ -57,16 +74,15 @@
       height: 17px;
       width: 17px;
       border-radius: 50%;
-      background-color: #D45058;
+      background-color: #d45058;
       border: 2px solid #fff;
       cursor: pointer;
     }
 
-    .journey-line-arrow{
+    .journey-line-arrow {
       position: absolute;
       right: 0px;
       top: -50%;
     }
   }
-
 }

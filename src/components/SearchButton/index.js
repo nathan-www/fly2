@@ -4,7 +4,7 @@ import Icon from "../Icon";
 function SearchButton(props) {
 
   return (
-    <div
+    <div onClick={props.onClick}
       className="search-button v-center"
       style={{ height: props.size, width: props.size }}
     >

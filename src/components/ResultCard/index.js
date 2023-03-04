@@ -13,7 +13,7 @@ function ResultCard(props) {
         <div className="v-center push-right price-container">
           <div>
             <h1>£{props.price}</h1>
-            <div className="btn cta flex">
+            <div className="btn cta flex" onClick={() => window.open(props.actionURL)}>
               <div className="v-center">
                 <p>Select</p>
               </div>
