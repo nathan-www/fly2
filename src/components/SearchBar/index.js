@@ -12,7 +12,7 @@ import { PinFill } from "react-bootstrap-icons";
 
 function SearchBar(props) {
   const [activePill, setActivePill] = useState(0);
-  const [destinationTyping, setDestinationTyping] = useState(false);
+  const [destinationTyping, setDestinationTyping] = useState(true);
   const [destinationAutofillOptions, setDestinationAutofillOptions] = useState(
     []
   );
